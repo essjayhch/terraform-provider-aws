@@ -274,9 +274,9 @@ When executing the test, the following steps are taken for each `TestStep`:
    expected value if possible. The testing framework provides helper functions
    for several common types of check - for example:
 
-    ```go
-    resource.TestCheckResourceAttr("aws_cloudwatch_dashboard.foobar", "dashboard_name", testAccDashboardName(rInt)),
-    ```
+   ```go
+   resource.TestCheckResourceAttr("aws_cloudwatch_dashboard.foobar", "dashboard_name", testAccDashboardName(rInt)),
+   ```
 
 1. The resources created by the test are destroyed. This step happens
    automatically, and is the equivalent of calling `terraform destroy`.
@@ -1066,7 +1066,8 @@ When running the acceptance tests, especially when developing or troubleshooting
 
 ### Running Test Sweepers
 
-**WARNING: Test Sweepers will destroy AWS infrastructure and backups in the target AWS account and region! These are designed to override any API deletion protection. Never run these outside a development AWS account that should be completely empty of resources.**
+!!! warning
+    Test Sweepers will destroy AWS infrastructure and backups in the target AWS account and region! These are designed to override any API deletion protection. Never run these outside a development AWS account that should be completely empty of resources. <!-- markdownlint-disable-line code-block-style -->
 
 To run the sweepers for all resources in `us-west-2` and `us-east-1` (default testing regions):
 
